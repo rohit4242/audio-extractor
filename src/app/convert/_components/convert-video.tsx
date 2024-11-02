@@ -90,13 +90,15 @@ const ConvertVideo = () => {
     });
   };
 
-  useEffect(() => loadWithToast(), []);
+  useEffect(() => {
+    loadWithToast();
+  }, [loadWithToast]);
   const convert = async () => {
     if (!videoFile) return;
     try {
       setTime({ ...time, startTime: new Date() });
       setStatus("converting");
-      ffmpegRef.current.on("progress", ({ progress: completion, time }) => {
+      ffmpegRef.current.on("progress", ({ progress: completion }) => {
         const percentage = completion * 100;
         setProgess(percentage);
       });

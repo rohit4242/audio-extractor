@@ -12,7 +12,6 @@ export function getFileExtension(fileName: string) {
 
   return "";
 }
-
 export default async function convertFile(
   ffmpeg: FFmpeg,
   input: File,
@@ -20,15 +19,11 @@ export default async function convertFile(
 ): Promise<any> {
   try {
     const outputExt = videoSettings.audioType || "mp3";
-    let outputFileName: string;
 
-    outputFileName = `audio_${input.name.split(".")[0]}.${outputExt}`;
+    const outputFileName = `audio_${input.name.split(".")[0]}.${outputExt}`;
 
     // Directly write the file to FFmpeg
-    await ffmpeg.writeFile(
-      input.name,
-      await fetchFile(input)
-    );
+    await ffmpeg.writeFile(input.name, await fetchFile(input));
 
     const ffmpegCommand = await extractAudioCommand(
       input,

@@ -4,9 +4,8 @@ export const extractAudioCommand = async (
   output: string,
   videoSettings: VideoInputSettings
 ): Promise<string[]> => {
-  let inputPath: string;
 
-  inputPath = input.name; // Assuming input.source is a local file path
+  const inputPath = input.name; // Assuming input.source is a local file path
 
   const baseCommand = [
     "-i",

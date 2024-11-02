@@ -40,7 +40,7 @@ export const VideoTrim = ({
         video.removeEventListener("loadedmetadata", handleLoadedMetadata);
       };
     }
-  }, []);
+  },  [onVideoSettingsChange, videoSettings]);
   return (
     <motion.div
       initial={{ scale: 0.8, opacity: 0 }}
