@@ -70,11 +70,11 @@ const ConvertVideo = () => {
     const ffmpeg = ffmpegRef.current;
     await ffmpeg.load({
       coreURL: await toBlobURL(
-        `http://localhost:3000/download/ffmpeg-core.js`,
+        `https://audio-extractor-opal.vercel.app/download/ffmpeg-core.js`,
         "text/javascript"
       ),
       wasmURL: await toBlobURL(
-        `http://localhost:3000/download/ffmpeg-core.wasm`,
+        `https://audio-extractor-opal.vercel.app/download/ffmpeg-core.wasm`,
         "application/wasm"
       ),
     });
